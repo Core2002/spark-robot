@@ -1,0 +1,22 @@
+OpenGroup:
+  - 1111111
+  - 2222222
+  - 3333333
+  - 0000000
+Login:
+  - qq: 8888888888
+    passwd: 1123
+    ing:
+      - 111
+      - 122
+      - 133
+  - qq: 2123
+    passwd: 6666666666
+    ing:
+      - 211
+      - 222
+      - 233
+AutoMorning: false
+GoodMorning:
+  - 早
+  - 早鸭
