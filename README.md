@@ -62,3 +62,79 @@ C: 小白最帅qwq
 每天自动续火花（默认关闭） 具体请参阅 `config.yml` 配置文件  
 在 `Login` 项中配置要续火花的QQ，然后开启 `AutoMorning` 即可  
 然后每天早晨6-10点会给每个人发早安，词库在 `GoodMorning` 中随机挑选一条  
+
+------
+
+## 部 署
+### 编译
+请先准备好 `Java` 环境，并保持良好网络环境
+```shell
+git clone https://github.com/Core2002/spark-robot
+cd spark-robot
+chmod +x gradlew
+gradlew shadowJar
+```
+至此，编译完毕，产物为 `spark-robot\build\libs\FiFuSparkBot-all.jar`
+
+### 配置
+
+请填写 `Config.json` 文件
+```json
+{
+  "ownerId": 3513353936,
+  "botId": 0,
+  "botPassword": "请输入密码"
+}
+```
+参数含义依次为 `机器人所有者的QQ号` 、 `机器人的QQ号` 、 `机器人的QQ密码`  
+
+请填写 `config.yml` 文件   
+将机器人拉入QQ群  
+在 `OpenGroup` 中填写要启用该机器人的群号  
+此文件为火花功能文件的配置文件，若不开启此功能，可以照抄例子  
+例子：  
+```yaml
+OpenGroup:
+  - 1111111
+  - 2222222
+  - 3333333
+  - 0000000
+Login:
+  - qq: 8888888888
+    passwd: 1123
+    ing:
+      - 111
+      - 122
+      - 133
+  - qq: 2123
+    passwd: 6666666666
+    ing:
+      - 211
+      - 222
+      - 233
+AutoMorning: false
+GoodMorning:
+  - 早
+  - 早鸭
+```
+请创建 `Qa.yml` 文件  
+此文件为机器人问答词库文件  
+例子：
+```yaml
+小白: 最帅
+
+```
+
+### 应用
+> 注意：  
+> 请确保目标设备已安装 `Java`  
+> 请确保目标设备java文件打开方式配置正确
+> 请确保程序可在测试环境正常运行  
+> 请确保配置文件携带完整  
+> 请确保请确保设备文件 `deviceInfo.json` 携带完整
+
+在合适的路径释放 `编译产物`、`配置文件`、`设备文件`  
+然后右键 `FiFuSparkBot-all.jar` ，在当前位置创建快捷方式  
+`Win + R` 打开运行界面，输入 `shell:startup`  
+将快捷方式复制进去  
+重启电脑，若机器人上线，既部署完毕  
