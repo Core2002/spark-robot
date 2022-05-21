@@ -5,9 +5,6 @@ import com.google.gson.GsonBuilder;
 import lombok.Data;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 @Data
 public class ConfigPojo {
@@ -16,11 +13,10 @@ public class ConfigPojo {
 
     static {
         if (!file.isFile()) {
-            try {
-                new FileWriter(file, StandardCharsets.UTF_8).write(gson.toJson(new ConfigPojo()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String s = gson.toJson(new ConfigPojo());
+            IOTools.writeTextFile(s, "UTF-8", file.getAbsolutePath());
+            System.out.println(s);
+            System.out.println("已自动创建配置文件 Config.json ，请填写");
         }
     }
 
